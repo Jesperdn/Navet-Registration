@@ -2,7 +2,7 @@
 
 A Python program for automatic registration to events at ifinavet.no
 
-Based on a frustration coming from the slowness of the website for event registration at UiO, this program aims to eliviate that frustration. Type in the name of the event and your food allergies, and let the program do the job for you.
+Based on a frustration coming from the slowness of the website for event registration at UiO, this program aims to eliviate that frustration. Type in the name of the event (or the company hosting it) and your food allergies, and let the program do the job for you.
 Built with Selenium for interaction and Win10Toast for notifcations.
 
 An email is sent to the given adress upon registration, containing all necessary information about the event.
