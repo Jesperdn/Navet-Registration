@@ -10,6 +10,7 @@ import time
 import smtplib
 import ssl
 
+
 def makeLink(inputString):
     linkString = ""
     for word in inputString.split():
@@ -40,7 +41,7 @@ def makeDriver(headless):
         options.add_argument("--window-size=1920,1080")
         options.add_argument("--start-maximized")
 
-    w_driver = webdriver.Chrome(options=options)
+    w_driver = webdriver.Chrome(options=options, executable_path="C:\Program Files\Google\chromedriver.exe")
     w_driver.get("https://ifinavet.no/")
     assert "Navet" in w_driver.title
 
@@ -94,7 +95,7 @@ def logout(w_driver):
 def notify(success, info):
     notifier = ToastNotifier()
     if success:
-        notifier.show_toast(f"Du er påmeldt{info['Tittel']}",
+        notifier.show_toast(f"Du er påmeldt {info['Tittel']}",
         f"{info['Tidspunkt']}, {info['Sted']}")
     else:
         notifier.show_toast(f"Påmelding feilet!", "Sjekk om du er påmeldt fra før")
@@ -140,9 +141,6 @@ def sendEmailRegistered(info, reciever):
     with smtplib.SMTP_SSL(smtp_server, port,) as server:
         server.login(sender, mail_pssw)
         server.send_message(msg)
-
-def sendEmailOpened(info, recievers):
-    pass
 
 def register(w_driver, allergies):
 
